@@ -8,7 +8,7 @@ const Contact = () => {
         <Layout title="Contact" description="This is the Contact page" >
             <div className="text-center mt-5 contact" style={{ marginBottom:"29%"}}>
                 <h1 style={{color: "grey"}} >Contact Query</h1>
-                <a className="btn btn-primary" href="https://github.com/naveedaa/shoes-store-app">
+                <a className="btn btn-primary" href="https://github.com/erajKamdar/shoe_store">
                     <GitHubIcon width={"18px"}/> 
                         <span className="ml-2 mr-4">
                             Visit Repo
