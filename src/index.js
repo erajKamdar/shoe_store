@@ -1,13 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import './index.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Store from './pages/dataStore';
+import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
+import Cart from "./pages/cart";
+import ProductsList from "./pages/dataStore/ProductsList";
+import ProductDetails from "./pages/dataStore/ProductDetails";
+import { HelmetProvider } from 'react-helmet-async';
+import ProductsContextProvider from './contexts/ProductsContext';
+import CartContextProvider from './contexts/CartContext';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <HelmetProvider>
+      <ProductsContextProvider>
+        <CartContextProvider>
+          <Router>
+            <Routes>
+            <Route exact path="/" element={<Store/>} />
+            <Route path="/" element={<ProductsList />} />
+            <Route path="product/:productId" element={<ProductDetails />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route exact path="*" element={<NotFound/>} />
+            </Routes>
+          </Router>
+        </CartContextProvider>
+      </ProductsContextProvider>
+    </HelmetProvider>,
   document.getElementById('root')
 );
 
